@@ -32,10 +32,7 @@
   </div>
   <div class="tab-pane" id="sampleContentD">
     <p>タブＤの内容</p>
-    <%= scatter_chart [ {name: ["A"], data: [[1,12]]},
-                        {name: ["B"], data: [[9,6]]},
-                        {name: ["C"], data: [[3,5]]},
-                      ],
+    <%= scatter_chart @plot,
                       xtitle: "日本酒度",
                       ytitle:"酸度",
                       legend: false%>
