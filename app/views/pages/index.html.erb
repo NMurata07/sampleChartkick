@@ -1,0 +1,46 @@
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#sampleContentA" data-toggle="tab">タブＡ</a></li>
+  <li><a href="#sampleContentB" data-toggle="tab">タブＢ</a></li>
+  <li><a href="#sampleContentC" data-toggle="tab">タブＣ</a></li>
+  <li><a href="#sampleContentD" data-toggle="tab">タブＤ</a></li>
+</ul>
+
+<!-- タブ内容 -->
+<div class="tab-content">
+  <div class="tab-pane active" id="sampleContentA">
+    <p>タブＡの内容</p>
+    <%= scatter_chart @data, xtitle: "日本酒度", ytitle:"酸度", legend: "Value" %>
+  </div>
+  <div class="tab-pane" id="sampleContentB">
+    <p>タブＢの内容</p>
+    <%= scatter_chart @data2 %>
+  </div>
+  <div class="tab-pane" id="sampleContentC">
+    <p>タブＣの内容</p>
+
+<%= scatter_chart data: {
+        labels: [1,2,3,4,5],
+        datasets: [{
+            label: "サンプル",
+            data: [1,2,3,4,5],
+            backgroundColor: 'rgba(255, 99, 132, 1.0)',
+            borderColor: 'rgba(255, 50, 132, 1.0)',
+            fill: false
+        }]
+}%>
+
+  </div>
+  <div class="tab-pane" id="sampleContentD">
+    <p>タブＤの内容</p>
+    <%= scatter_chart [ {name: ["A"], data: [[1,12]]},
+                        {name: ["B"], data: [[9,6]]},
+                        {name: ["C"], data: [[3,5]]},
+                      ],
+                      xtitle: "日本酒度",
+                      ytitle:"酸度",
+                      legend: false%>
+  </div>
+  <%#= line_chart @goals.map { |goal|
+    {name: goal.name, data: goal.feats.group_by_week(:created_at).count}
+  } %>
+</div>
